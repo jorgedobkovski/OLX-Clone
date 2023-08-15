@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "277914882157",
+    "project_id": "ecotec-d4f01",
+    "storage_bucket": "ecotec-d4f01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277914882157:android:d375b7b53b7f6a3781af64",
+        "android_client_info": {
+          "package_name": "com.cursoflutter.olx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277914882157-ce6id94gtcs51js8evgocl8a6fneq39p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvi_ZrHH1r3Aj-HMq3TjxA1sIW95m5kEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277914882157-ce6id94gtcs51js8evgocl8a6fneq39p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

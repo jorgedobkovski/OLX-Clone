@@ -129,7 +129,7 @@ class _LoginState extends State<Login> {
                 ),
                 BotaoCustomizado(
                     texto: _textoBotao,
-                    onPressed: _validarCampos(),
+                    onPressed: _validarCampos,
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 20),

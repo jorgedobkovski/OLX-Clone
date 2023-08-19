@@ -56,7 +56,7 @@ class ItemAnuncio extends StatelessWidget {
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
                   padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(10)),
                 ),
-                onPressed: (){},
+                onPressed: this.onPressedRemover,
                 child: Icon(Icons.delete, color: Colors.white,),
               ),
             ),

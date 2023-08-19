@@ -25,7 +25,7 @@ class Anuncio{
     this.titulo = documentSnapshot["titulo"];
     this.preco = documentSnapshot["preco"];
     this.telefone = documentSnapshot["telefone"];
-    this.descricao = documentSnapshot["descricao"];
+    this.descricao = documentSnapshot["descrição"];
     this.fotos = List<String>.from(documentSnapshot["fotos"]);
   }
 

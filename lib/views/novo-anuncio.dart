@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:olx/models/anuncio.dart';
+import 'package:olx/util/Configuracoes.dart';
 import 'package:olx/views/widgets/botaoCustomizado.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:olx/views/widgets/inputCustomizado.dart';
@@ -78,13 +79,16 @@ class _NovoAnuncioState extends State<NovoAnuncio> {
     FirebaseFirestore db = FirebaseFirestore.instance;
     db.collection("meus_anuncios")
     .doc( idUsuarioLogado )
-    .collection("anuncio")
+    .collection("anuncios")
     .doc( _anuncio?.id )
     .set(_anuncio!.toMap()).then((_){
 
-      Navigator.pop(_dialogContext!);
-      Navigator.pop(context);
-
+      db.collection("anuncios")
+        .doc(_anuncio!.id)
+        .set(_anuncio!.toMap()).then((_){
+          Navigator.pop(_dialogContext!);
+          Navigator.pop(context);
+      });
     });
 
   }
@@ -123,27 +127,10 @@ class _NovoAnuncioState extends State<NovoAnuncio> {
   }
 
   _carregarItensDropdown(){
-    _listaDropCategorias.add(
-      DropdownMenuItem(child: Text("Automóvel"), value: "auto",)
-    );
-    _listaDropCategorias.add(
-        DropdownMenuItem(child: Text("Imóvel"), value: "imovel",)
-    );
-    _listaDropCategorias.add(
-        DropdownMenuItem(child: Text("Eletrônicos"), value: "eletro",)
-    );
-    _listaDropCategorias.add(
-        DropdownMenuItem(child: Text("Moda"), value: "moda",)
-    );
-    _listaDropCategorias.add(
-        DropdownMenuItem(child: Text("Esportes"), value: "esportes",)
-    );
 
-    for(var estado in Estados.listaEstadosSigla){
-      _listaDropEstados.add(
-          DropdownMenuItem(child: Text(estado), value: estado,)
-      );
-    }
+    _listaDropCategorias = Configuracoes.getCategorias();
+    _listaDropEstados = Configuracoes.getEstados();
+
   }
 
   @override

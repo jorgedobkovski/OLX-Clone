@@ -103,6 +103,9 @@ class _LoginState extends State<Login> {
                   autofocus: true,
                   type: TextInputType.emailAddress,
                 ),
+                Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5)
+                ),
                 InputCustomizado(
                   controller: _controllerSenha,
                   hint: "Senha",

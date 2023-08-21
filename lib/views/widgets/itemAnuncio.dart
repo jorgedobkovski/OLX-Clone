@@ -17,7 +17,7 @@ class ItemAnuncio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: this.onTapItem,
       child: Card(
         child: Padding(
           padding: EdgeInsets.all(12),
@@ -45,7 +45,7 @@ class ItemAnuncio extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text("R\$ ${anuncio.preco}"),
+                  Text(anuncio.preco),
                 ],),
               ),
             ),

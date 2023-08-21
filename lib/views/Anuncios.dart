@@ -113,6 +113,14 @@ class _AnunciosState extends State<Anuncios> {
 
   @override
   Widget build(BuildContext context) {
+
+    var carregandoDados = Center(
+      child: Column(children: <Widget>[
+        Text("Carregando anúncios..."),
+        CircularProgressIndicator()
+      ],),
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text("OLX"),
@@ -189,6 +197,8 @@ class _AnunciosState extends State<Anuncios> {
               switch(snapshot.connectionState){
                 case ConnectionState.none:
                 case ConnectionState.waiting:
+                  return carregandoDados;
+                  break;
                 case ConnectionState.active:
                 case ConnectionState.done:
                   QuerySnapshot querySnapshot = snapshot.data!;
@@ -211,9 +221,13 @@ class _AnunciosState extends State<Anuncios> {
                             Anuncio anuncio = Anuncio.fromDocumentSnapshot(documentSnapshot);
 
                             return ItemAnuncio(
-                                anuncio: anuncio,
+                              anuncio: anuncio,
                               onTapItem: (){
-
+                                  Navigator.pushNamed(
+                                      context,
+                                      "/detalhes-anuncio",
+                                    arguments: anuncio,
+                                  );
                               },
                             );
                           }
